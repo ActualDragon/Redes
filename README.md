@@ -9,27 +9,35 @@
 </div>
 
 <div>
-  <h3> Instrucciones para correr los contenedores </h3>
+  <h3> Instrucciones para correr los contenedores: </h3>
   FASE BUILD (OBTENER IMAGEN)
-  <p>&emsp;Lo primero es descargar el dockerfile, abrir una terminal e ir al directorio donde se encuentre tu archivo.</p>
-  <p>&emsp;Una vez hecho eso, ejecutarás el siguiente comando en terminal:</p>
-  <p>&emsp;$docker build -t telnetssh .</p>
+  <ol>
+    <li>&emsp;Descargar el dockerfile</li>
+    <li>&emsp;Abrir una terminal e ir al directorio donde se encuentre el archivo.</li>
+    <li>&emsp;Una vez hecho eso, ejecutar el siguiente comando en terminal para crear una imagen llamada "telnetssh":</li>
+    <p>&emsp;$docker build -t telnetssh .</p>
+  </ol>
   FASE RUN (CREAR CONTENEDOR Y CORRERLO)
-  <p>&emsp;Una vez que tengas tu images con el nombre de "telnetssh", lo que toca es crear un contenedor a partir de esa imagen.</p>
-  <p>&emsp;Para correr el contenedor, va a ser necesario forwardear los puertos necesarios para que corra correctamente. El comando es el siguiente:</p>
-  <p>&emsp;$docker run -itd -p 2200:22 -p 2300:23 telnetssh</p>
-  <p>&emsp;Nosotros seleccionamos los puertos 2200 y 2300 para forwardear respecctivamente a los puertos 22 (SSH) y 23 (Telnet)</p>
+  <ol>
+    <li>&emsp;Una vez que se tenga la imagen con el nombre de "telnetssh", es necesario crear un contenedor a partir de esa imagen.</li>
+    <li>&emsp;Para correr el contenedor, es necesario forwardear los puertos necesarios. El comando es el siguiente:</li>
+    <p>&emsp;$docker run -itd -p 2200:22 -p 2300:23 telnetssh</p>
+    <p>&emsp;Se seleccionaron los puertos 2200 y 2300 para forwardear a los puertos 22 (SSH) y 23 (Telnet), respectivamente</p>
+  </ol>
   FASE COMPROBACIÓN (CORRER TELNET Y SSH)
-  <p>&emsp;Es importante revisar que tu contenedor esté corriendo correctamente. Lo puedes hacer con el siguiente comando:</p>
-  <p>&emsp;$docker container ls</p>
-  <p>&emsp;Una vez observando que el contenedor está corriendo correctamente, es necesario probarlo al abrir una nueva terminal y abrir los servicios con los siguientes comando:</p>
-  <p>&emsp;$ssh test@localhost --p 22</p>
-  <p>&emsp;Para correr el servicio de telnet será con el siguiente comando:</p>
-  <p>&emsp;$telnet localhost 23</p>
-  <p>&emsp;Para ambos casos el usuario será test, así como la contraseña.</p>
+  <ol>
+    <li>&emsp;Es importante revisar que tel contenedor esté corriendo correctamente. Esto se puede hacer con el siguiente comando:</li>
+    <p>&emsp;$docker container ls</p>
+    <li>&emsp;Una vez que se ha comprobado que el contenedor está corriendo correctamente, es necesario probarlo abriendo una nueva terminal y   abriendo los servicios   con los siguientes comandos:</li>
+    <ol>
+      <li>&emsp;$ssh test@localhost --p 22</li>
+      <li>&emsp;$telnet localhost 23</li>
+      <p>&emsp;Para ambos casos tanto el usuario como la contraseña serán "test"</p>
+    </ol>
+  </ol>
 </div>
 
 <div align="center">
-    <h3> ¡Listo! Tus servicios ya deben de estar funcionando correctamente.</h3>
+    <h3> ¡Listo! Los servicios ya deben de estar funcionando correctamente.</h3>
 </div>
 
